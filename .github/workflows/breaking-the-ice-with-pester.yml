@@ -25,6 +25,8 @@ jobs:
           $Config = New-PesterConfiguration
           $Config.Run.Path = ".\2022\Breaking the ice with Pester\example.Tests.ps1"
           $Config.Run.Throw = $true
+          $Config.Output.Verbosity = "Detailed"
+          
           Invoke-Pester -Configuration $Config
         shell: pwsh
 
