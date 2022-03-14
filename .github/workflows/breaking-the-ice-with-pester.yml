@@ -1,0 +1,36 @@
+name: "Breaking the ice with Pester"
+on: 
+  # push:
+  #   paths:
+  #     - 'src/**'
+  #   branches:
+  #     - main
+  #     - master
+  # schedule:
+  #   - cron: '30 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  job-main:
+    name: main
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.1
+
+      - name: Pester Test - using Invoke-Pester cmdlet from Pester module
+        run: |
+          Install-Module "Pester"
+
+          $Config = New-PesterConfiguration
+          $Config.Run.Path = ".\2022\Breaking the ice with Pester\example.Tests.ps1"
+          $Config.Run.Throw = $true
+          Invoke-Pester -Configuration $Config
+        shell: pwsh
+
+      - name: Pester Test - using Github Action with nice report
+        uses: zyborg/pester-tests-report@v1
+        with:
+          include_paths: "./2022/Breaking the ice with Pester/example.Tests.ps1"
+          report_title: Pester Test Report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
