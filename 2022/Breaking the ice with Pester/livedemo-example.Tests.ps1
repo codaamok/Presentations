@@ -21,14 +21,11 @@ Describe "Internet connectivity" {
     }
 }
 
-# Pester configuration for terminating error
-$Config = New-PesterConfiguration
-$Config.Run.Path = '.\example.Tests.ps1'
-$Config.Run.Throw = $true
+# Call script file containing tests and produce exception if test fails
+# Show configuration and error handling
 try {
-    Invoke-Pester -Configuration $Config
+    Invoke-Pester -Path ".\example.Tests.ps1"
 }
 catch {
     "Caught"
 }
-
