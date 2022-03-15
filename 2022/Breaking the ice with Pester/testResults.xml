@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2022-03-15" time="08:35:02">
+  <environment platform="Microsoft Windows 11 Enterprise|C:\Windows|\Device\Harddisk0\Partition3" machine-name="CLIENT01" cwd="C:\git\Presentations\2022\Breaking the ice with Pester" user="acc" user-domain="CODAAMOK" nunit-version="2.5.8.0" os-version="10.0.22000" clr-version="Unknown" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite type="TestFixture" name="Pester" executed="True" result="Failure" success="False" time="0.0913" asserts="0" description="Pester">
+    <results>
+      <test-suite type="TestFixture" name="C:\git\Presentations\2022\Breaking the ice with Pester\example.Tests.ps1" executed="True" result="Failure" success="False" time="0.0913" asserts="0" description="C:\git\Presentations\2022\Breaking the ice with Pester\example.Tests.ps1">
+        <results>
+          <test-suite type="TestFixture" name="My computer" executed="True" result="Failure" success="False" time="0.0525" asserts="0" description="My computer">
+            <results>
+              <test-case description="OS version should be 10.0.22000" name="My computer.OS version should be 10.0.22000" time="0.0495" asserts="0" success="False" result="Failure" executed="True">
+                <failure>
+                  <message>Expected '10.0.22000' to be different from the actual value, but got the same value.</message>
+                  <stack-trace>at (Get-CimInstance "Win32_OperatingSystem").Version | Should -Not -Be "10.0.22000", C:\git\Presentations\2022\Breaking the ice with Pester\example.Tests.ps1:3
+at &lt;ScriptBlock&gt;, C:\git\Presentations\2022\Breaking the ice with Pester\example.Tests.ps1:3</stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
